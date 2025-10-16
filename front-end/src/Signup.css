@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* --- Root Variables --- */
+:root {
+    --primary-color: #00ff99;
+    --accent-color: #009e60;
+    --glow-color: rgba(0, 158, 96, 0.25);
+    --dark-bg: #1a3c1a;
+    --card-bg: #224d22;
+    --text-primary: #eafbe7;
+    --text-secondary: #b2e5c7;
+    --input-bg: #224d22;
+    --border-color: #009e60;
+    --font-family: 'Outfit', sans-serif;
+}
+
+/* --- Base & Background --- */
+.signup-bg {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family);
+    background-color: #1a3c1a;
+   /* background-image: url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1600&q=80");*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-blend-mode: overlay;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* --- Signup Card --- */
+.signup-card {
+    position: relative;
+    max-width: 440px;
+    width: 100%;
+    padding: 3rem;
+    background-color: #224d22;
+    color: #eafbe7;
+    border-radius: 20px;
+    border: 1px solid #009e60;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Back to Home Button --- */
+.back-to-home {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.back-to-home:hover {
+    color: #007bff;
+}
+
+/* --- Header & Subtitle --- */
+.signup-card h2.gradient-text {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.signup-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* --- Form & Inputs --- */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+.input-group {
+    position: relative;
+}
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+.signup-form input {
+    width: 100%;
+    padding: 0.9rem 1rem 0.9rem 3rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+.signup-form input::placeholder {
+    color: rgba(224, 228, 240, 0.4);
+}
+.signup-form input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(0, 184, 212, 0.2);
+}
+.signup-form input:focus + .input-icon {
+    color: var(--primary-color);
+}
+.signup-form label,
+.login-form label {
+    color: #222;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
+.signup-form label[for="email"],
+.signup-form label[for="password"],
+.login-form label[for="email"],
+.login-form label[for="password"] {
+    color: #111;
+    font-weight: 700;
+    font-size: 1.08rem;
+    letter-spacing: 0.03em;
+}
+
+/* --- Role Selection --- */
+.role-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding-left: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+.role-buttons {
+    display: flex;
+    gap: 1rem;
+}
+.role-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-family);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.role-btn:hover {
+    background-color: var(--input-bg);
+    border-color: var(--accent-color);
+    color: var(--text-primary);
+}
+.role-btn.active-role {
+    background: var(--accent-color);
+    color: var(--dark-bg);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 15px var(--glow-color);
+}
+
+/* --- Submit Button & Switch Link --- */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border: none;
+    border-radius: 12px;
+    color: var(--dark-bg);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px var(--glow-color);
+}
+.switch-text {
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    color: var(--text-secondary);
+}
+.switch-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.switch-text a:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 500px) {
+    .signup-card {
+        padding: 2.5rem 1.5rem;
+        max-width: 100%;
+    }
+    .back-to-home {
+        top: 1.5rem;
+        left: 1.5rem;
+    }
+    .signup-card h2.gradient-text {
+        font-size: 1.8rem;
+    }
+}
